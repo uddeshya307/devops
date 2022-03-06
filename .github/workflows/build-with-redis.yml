@@ -16,6 +16,8 @@ jobs:
         # Docker Hub image
         image: grokzen/redis-cluster
         # Set health checks to wait until redis has started
+        env: 
+          ax: gh
         options: >-
           --health-cmd "redis-cli --cluster call 127.0.0.1:7000 INFO"
           --health-interval 10s 
