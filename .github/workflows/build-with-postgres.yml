@@ -17,10 +17,6 @@ jobs:
         image: postgres
         # Provide the password for postgres
         # Set health checks to wait until postgres has started
-        env:
-          POSTGRHJKES_DB: postgres
-          POSTGRNKMES_USER: postgres
-          POSTGRESKL_PASSWORD: 1q2w3e4r
         
 
     steps:
