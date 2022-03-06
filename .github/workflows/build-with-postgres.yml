@@ -21,11 +21,7 @@ jobs:
           POSTGRES_DB: postgres
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: 1q2w3e4r
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
