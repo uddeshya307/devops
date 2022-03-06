@@ -15,6 +15,7 @@ jobs:
         env:
           POSTGRES_DB: passw
           POSTGRES_USER: Uddes
+          POSTGRES_PASSWORD: Uddeshya
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
