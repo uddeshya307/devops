@@ -20,10 +20,3 @@ jobs:
         with:
           otp-version: 22.x
           elixir-version: 1.9.x
-      - run: MIX_ENV=test mix deps.get
-      - name: setup db and test
-        run: |
-          MIX_ENV=test mix ecto.setup
-          mix test
-        env:
-          DATABASE_URL: "mysql2://root:root@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/myapp"
