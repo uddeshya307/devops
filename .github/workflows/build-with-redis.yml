@@ -8,6 +8,10 @@ jobs:
     services:
       redis:
         image: grokzen/redis-cluster
+        env: 
+          CLUSTER_ONLY: 'true'
+          MASTERS: 3
+          SLAVES_PER_MASTER: 1
         options: >-
           --health-cmd "redis-cli --cluster call <ip>:<port> INFO"
           --health-interval 10s 
