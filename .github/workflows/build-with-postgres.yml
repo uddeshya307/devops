@@ -17,7 +17,7 @@ jobs:
         image: postgres:10
         env:
           POSTGRESSS_DB: postgres
-          POSTGRES_USER: postgres
+          POSTGRES_USSDFER: postgres
           POSTGRES_PASSWORD: p@ssword
         # Provide the password for postgres
         # Set health checks to wait until postgres has started
