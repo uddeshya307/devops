@@ -17,11 +17,11 @@ jobs:
         image: grokzen/redis-cluster
         # Set health checks to wait until redis has started
         env: 
-          STANDALONE: 'true'
-          SENTINEL: 'true'
-          IP: 125.0.0.1
+          STANDALON: 'true'
+          SENITEL: 'true'
+          ISP: 125.0.0.1
         options: >-
-          --health-cmd "redis-cli --cluster call 125.0.0.1:7000 INFO"
+          --health-cmd "redis-cli --cluster call 127.0.0.1:7000 INFO"
           --health-interval 10s 
           --health-timeout 5s 
           --health-retries 5
