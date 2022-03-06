@@ -16,7 +16,7 @@ jobs:
         # Docker Hub image
         image: postgres:10
         env:
-          POSTGRES_DB: postgres
+          POSTGRE_DB: postgres
           POSTGRES_USSDFER: postgres
           POSTGRES_PASSWORD: Paasw
         # Provide the password for postgres
