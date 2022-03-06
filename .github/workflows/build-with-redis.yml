@@ -1,4 +1,4 @@
-name: build with redis
+name: Build with redis
 on: [push, pull_request]
 jobs:
   job:
@@ -7,7 +7,7 @@ jobs:
     timeout-minutes: 10
     services:
       redis:
-        image: grozken/redis-cluster
+        image: grokzen/redis-cluster
         options: >-
           --health-cmd "redis-cli --cluster call <ip>:<port> INFO"
           --health-interval 10s 
