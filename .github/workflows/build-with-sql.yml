@@ -1,0 +1,27 @@
+name: Run Tests
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        ports:
+        - 3306
+        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v1.0.0
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-elixir@v1.0.0
+        with:
+          otp-version: 22.x
+          elixir-version: 1.9.x
+      - run: MIX_ENV=test mix deps.get
+      - name: setup db and test
+        run: |
+          MIX_ENV=test mix ecto.setup
+          mix test
+        env:
+          DATABASE_URL: "mysql2://root:root@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/myapp"
