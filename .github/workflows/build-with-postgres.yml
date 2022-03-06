@@ -1,4 +1,4 @@
-name: Build with redis
+name: Build with postgres
 on: [push, pull_request]
 jobs:
   job:

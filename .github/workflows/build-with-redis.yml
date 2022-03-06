@@ -1,0 +1,17 @@
+name: build with redis
+on: [push, pull_request]
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    container: node:12
+    timeout-minutes: 10
+    services:
+      redis:
+        image: grozken/redis-cluster
+        options: >-
+          --health-cmd "redis-cli --cluster call <ip>:<port> INFO"
+          --health-interval 10s 
+          --health-timeout 5s 
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v1
