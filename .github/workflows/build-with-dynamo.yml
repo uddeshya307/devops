@@ -10,7 +10,14 @@ jobs:
         image: amazon/dynamodb-local
         ports:
           - '8000:8000'
+        env:
+          AWS_ACCESS_KEY_ID: dummyId
+          AWS_SECRET_ACCESS_KEY: dummyKey
+          AWS_REGION: dummyRegion
+          DYNAMODB_ENDPOINT_OVERRIDE: http://localhost:8000
+
         options: >-
           --workdir /home/dynamodblocal
+          --health-cmd "curl --fail http://127.0.0.1:8000/shell/ || exit 1" --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v1
