@@ -10,5 +10,7 @@ jobs:
         image: amazon/dynamodb-local
         ports:
           - '8000:8000'
+        options: >-
+          --workdir /home/dynamodblocal
     steps:
       - uses: actions/checkout@v1
