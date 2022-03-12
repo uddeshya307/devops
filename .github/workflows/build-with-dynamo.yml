@@ -6,7 +6,7 @@ jobs:
     container: node:12
     timeout-minutes: 10
     services:        
-      dynamodb:
+      dynamodb-local:
         image: amazon/dynamodb-local:1.16.0
         ports:
         - 8000:8000
@@ -15,6 +15,6 @@ jobs:
       - uses: actions/checkout@v1
       
       - name: Setup aws configure
-        run: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+        run: -jar DynamoDBLocal.jar -sharedDb -dbPath ./data
         
           
