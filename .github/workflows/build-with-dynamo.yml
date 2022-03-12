@@ -14,8 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       
-      - name: Run a script
-        run: |
-          echo What is the directory
-          ls -a
+      - name: Setup dynamo db
+        run: docker run -p 8000:8000 amazon/dynamodb-local:1.16.0
           
