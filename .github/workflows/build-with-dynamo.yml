@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v1
       
       - name: Setup aws configure
-        run: -jar DynamoDBLocal.jar -sharedDb -dbPath ./data
+      - run: |
+          sudo apt install docker.io -y
+          sudo snap install docker
+          sudo systemctl status docker
+          docker --version
         
           
