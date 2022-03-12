@@ -14,6 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       
-      - name: Setup dynamo db
-        run: docker run -p 8000:8000 amazon/dynamodb-local:1.16.0
+      - name: Setup aws configure
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: fakekeyid
+          aws-secret-access-key: fakesecretkey
+          aws-region: us-east-1
+        
           
