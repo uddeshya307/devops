@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       
-      - name: Setup aws configure
-      - run: |
+      - name: Install docker
+        run: |
           sudo apt install docker.io -y
           sudo snap install docker
           sudo systemctl status docker
